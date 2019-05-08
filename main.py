@@ -6,24 +6,25 @@ import time
 channel = 17
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN)
+GPIO.setwarnings(False) 
 
 LEDBlue = 18
         
-GPIO.setup(LED, GPIO.OUT)
+GPIO.setup(LEDBlue, GPIO.OUT)
 
-GPIO.output(LED, GPIO.LOW)
+GPIO.output(LEDBlue, GPIO.LOW)
 
 LEDGreen = 22
         
-GPIO.setup(LED, GPIO.OUT)
+GPIO.setup(LEDGreen, GPIO.OUT)
 
-GPIO.output(LED, GPIO.LOW)
+GPIO.output(LEDGreen, GPIO.LOW)
 
 LEDRed = 27
         
-GPIO.setup(LED, GPIO.OUT)
+GPIO.setup(LEDRed, GPIO.OUT)
 
-GPIO.output(LED, GPIO.LOW)
+GPIO.output(LEDRed, GPIO.LOW)
 
 
 def callback(channel):
@@ -46,5 +47,9 @@ while True:
         time.sleep(1)
 
         GPIO.output(LEDBlue, GPIO.HIGH)  #Turn on LED
+
+    	time.sleep(2.5) 
+
+    	GPIO.output(LEDBlue, GPIO.LOW)  #Turn on LED
 
     	time.sleep(2.5) 
