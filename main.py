@@ -26,10 +26,11 @@ GPIO.setup(LEDRed, GPIO.OUT)
 
 GPIO.output(LEDRed, GPIO.LOW)
 
+detectedSound = "Sound detected"
 
 def callback(channel):
         if GPIO.input(channel):
-                print "Sound Detected!"
+                print (detectedSound)
 
                 GPIO.output(LEDGreen, GPIO.HIGH)  #Turn on LED
         
@@ -37,7 +38,7 @@ def callback(channel):
 
                 GPIO.output(LEDGreen, GPIO.LOW)   #Turn off LED
         else:
-                print "Sound Detected!"
+                print (detectedSound)
 
 GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=300)  # let us know when the pin goes HIGH or LOW
 GPIO.add_event_callback(channel, callback)  # assign function to GPIO PIN, Run function on change
@@ -50,6 +51,6 @@ while True:
 
     	time.sleep(2.5) 
 
-    	GPIO.output(LEDBlue, GPIO.LOW)  #Turn on LED
+    	GPIO.output(LEDBlue, GPIO.LOW)  #Turn off LED
 
-    	time.sleep(2.5) 
+    	#time.sleep(2.5) 
